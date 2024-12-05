@@ -4,9 +4,9 @@
       <div class="mt-3">
         <div class="flex items-center justify-center mx-5 relative">
           <div>
-            <img src="https://avatars.githubusercontent.com/u/49700921?v=4" alt="LyxWhisper Logo" class="w-20 mx-auto rounded-full" />
+            <img :src="adminPhoto" :alt="adminName" class="w-20 mx-auto rounded-full" />
             <div class="text-center">
-              <p class="font-bold text-xl mt-1">Leonardo Ojeda</p>
+              <p class="font-bold text-xl mt-1">{{ adminName }}</p>
               <p class="text-md text-gray-700">Administrador</p>
             </div>
           </div>
@@ -57,7 +57,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { SideBar, SideBarMenu } from '@/lib/components'
 import { localStorageService } from '@/services/localStorage.service'
@@ -66,7 +66,16 @@ import { localStorageService } from '@/services/localStorage.service'
 const isDrawerOpen = ref(false)
 const isModalSearchOpen = ref(false)
 
+const adminName = ref('')
+const adminPhoto = ref('https://w7.pngwing.com/pngs/129/292/png-transparent-female-avatar-girl-face-woman-user-flat-classy-users-icon.png')
+
 const router = useRouter()
+
+onMounted(() => {
+  const userValue = localStorageService.user
+  adminName.value = userValue?.user.name
+  adminPhoto.value = userValue?.user.avatar
+})
 
 const userMenus: any = [
   {
