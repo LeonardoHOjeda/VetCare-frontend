@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer tailwind-base, primevue, tailwind-utilities;
+
+@layer tailwind-base {
+  @tailwind base;
+}
+
+@layer tailwind-utilities {
+  @tailwind components;
+  @tailwind utilities;
+}
+
+/* Global: Sobrescribir ConfirmDialog */
+.p-dialog {
+  border-radius: 8px !important;
+}
+
+.p-confirmdialog-reject-button{
+  background-color: rgb(156 163 175) !important;
+  border-color: rgb(156 163 175) !important;
+  color: white !important;
+}
+
+.p-confirm-dialog {
+  border-radius: 8px !important;
+}
+
+.p-confirm-dialog .p-dialog-header {
+  background-color: #1d4ed8 !important;
+  color: white !important;
+}
+
+.p-confirm-dialog .p-dialog-content {
+  font-size: 16px;
+  color: #374151;
+}
+
+.p-confirm-dialog .p-confirm-dialog-footer button {
+  border-radius: 8px !important;
+  padding: 10px 20px;
+}
+
+.p-confirm-dialog .p-confirm-dialog-footer .p-button-danger {
+  background-color: #dc2626 !important;
+  color: white !important;
+}
+
+.p-confirm-dialog .p-confirm-dialog-footer .p-button-secondary {
+  background-color: #d1d5db !important;
+  color: #374151 !important;
+}
