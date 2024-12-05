@@ -3,4 +3,5 @@ export interface User {
   name: string
   role_id: number
   created_at: string
+  avatar: string
 }

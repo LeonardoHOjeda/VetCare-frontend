@@ -61,20 +61,19 @@ import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { SideBar, SideBarMenu } from '@/lib/components'
 import { localStorageService } from '@/services/localStorage.service'
-// import { userService } from '@/services/user.service'
 
 const isDrawerOpen = ref(false)
 const isModalSearchOpen = ref(false)
 
-const adminName = ref('')
-const adminPhoto = ref('https://w7.pngwing.com/pngs/129/292/png-transparent-female-avatar-girl-face-woman-user-flat-classy-users-icon.png')
+const adminName = ref<any>('')
+const adminPhoto = ref<any>('https://w7.pngwing.com/pngs/129/292/png-transparent-female-avatar-girl-face-woman-user-flat-classy-users-icon.png')
 
 const router = useRouter()
 
 onMounted(() => {
-  const userValue = localStorageService.user
-  adminName.value = userValue?.user.name
-  adminPhoto.value = userValue?.user.avatar
+  const userValue = localStorageService.user?.user
+  adminName.value = userValue?.name
+  adminPhoto.value = userValue?.avatar
 })
 
 const userMenus: any = [
